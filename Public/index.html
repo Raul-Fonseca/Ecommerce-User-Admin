@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja de Doces e Salgados</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <div class="max-w-7xl mx-auto p-6 bg-white rounded shadow mt-6">
+    <h1 class="text-4xl font-bold mb-6 text-center text-blue-600">Loja de Doces e Salgados</h1>
+
+    <!-- Produtos -->
+    <div id="produtos" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-6">
+      <!-- Produtos serão carregados aqui -->
+    </div>
+
+    <!-- Carrinho -->
+    <div class="mt-8">
+      <h2 class="text-xl font-semibold">Carrinho</h2>
+      <div id="carrinho" class="space-y-4">
+        <!-- Carrinho vazio ou com itens -->
+      </div>
+
+      <div class="mt-4">
+        <p class="font-bold">Total: R$ <span id="totalCarrinho">0.00</span></p>
+        <button onclick="finalizarPedido()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Finalizar Pedido</button>
+      </div>
+    </div>
+
+    <h2 class="mt-8 text-xl font-semibold">Status do Pedido</h2>
+    <p id="statusPedido" class="text-lg font-bold text-blue-600">Aguardando confirmação...</p>
+  </div>
+
+  <!-- Modal para inserir informações -->
+  <div id="modal" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden z-10">
+    <div class="bg-white p-6 rounded shadow-md w-96">
+      <h2 class="text-lg font-semibold mb-2">Detalhes do Pedido</h2>
+      <input id="nome" type="text" class="w-full border px-3 py-1 mb-3" placeholder="Nome">
+      <input id="endereco" type="text" class="w-full border px-3 py-1 mb-3" placeholder="Endereço">
+      <input id="dataEntrega" type="date" class="w-full border px-3 py-1 mb-3">
+      <select id="formaPagamento" class="w-full border px-3 py-1 mb-3">
+        <option value="cartao">Cartão de Crédito</option>
+        <option value="debito">Débito</option>
+        <option value="pix">Pix</option>
+      </select>
+      <label class="inline-flex items-center mt-4">
+        <input type="checkbox" id="retirarNoLocal" class="form-checkbox" />
+        <span class="ml-2">Retirar no local</span>
+      </label>
+      <div class="flex justify-end gap-2 mt-4">
+        <button onclick="fecharModal()" class="px-3 py-1 bg-gray-300 rounded hover:bg-gray-400">Cancelar</button>
+        <button onclick="confirmarPedido()" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+ <script src="index.js"></script>
+
+</body>
+</html>
